@@ -2,6 +2,7 @@
 
 - Achievement Enabler [Link](https://github.com/Steamopollys/Steamodded/blob/main/example_mods/Mods/AchievementsEnabler.lua)
 - BBBalatro [Link](https://github.com/BBBalatroMod/BBBalatro/tree/main)
+- Betmma's Mods [Link](https://github.com/betmma/my_balatro_mods)
 - Bunco [Link](https://github.com/Firch/Bunco)
 - Codex Arcanum [Link](https://github.com/itayfeder/Codex-Arcanum)
 - Divvy's Preview [Link](https://github.com/DivvyCr/Balatro-Preview)
