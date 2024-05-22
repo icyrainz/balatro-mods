@@ -7,7 +7,7 @@
 ----------------------------------------------
 ------------MOD CODE -------------------------
 
----- Bunco 4.1
+---- Bunco 4.2
 --
 -- A mod that I'm trying so hard to make. Of course feel free to reference anything from here.
 --
@@ -204,6 +204,10 @@ function SMODS.INIT.Bunco()
         for _, v in pairs(suits) do
             if v > 0 then num_suits = num_suits + 1 end
         end
+
+        sendDebugMessage('Amount of wild cards: '..num_wild_cards or '')
+        sendDebugMessage('Amount of non-wild cards: '..num_non_wild_cards or '')
+        sendDebugMessage('Amount of suits in total: '..num_suits or '')
 
         if num_non_wild_cards == 1 then
             return { hand }
@@ -2692,12 +2696,21 @@ function SMODS.INIT.Bunco()
             for _, v in ipairs(self.ability.extra.new_card_list) do
                 v.ability.perma_bonus = v.ability.perma_bonus or 0
                 v.ability.perma_bonus = v.ability.perma_bonus + self.ability.extra.bonus
-
-                table.insert(self.ability.extra.old_card_list, v)
             end
+
+            self.ability.extra.old_card_list = self.ability.extra.new_card_list
+            -- not needed, but good style to fail fast
+            self.ability.extra.new_card_list = nil
 
             forced_message(localize('k_upgrade_ex'), self, G.C.CHIPS)
 
+        end
+
+        if context.selling_self and not context.blueprint then
+            for _, v in ipairs(self.ability.extra.old_card_list) do
+                v.ability.perma_bonus = v.ability.perma_bonus or 0
+                v.ability.perma_bonus = v.ability.perma_bonus - self.ability.extra.bonus
+            end
         end
     end
 

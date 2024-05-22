@@ -2,7 +2,7 @@
 --- MOD_NAME: Betmma Vouchers
 --- MOD_ID: BetmmaVouchers
 --- MOD_AUTHOR: [Betmma]
---- MOD_DESCRIPTION: 36 More Vouchers and 11 Fusion Vouchers!
+--- MOD_DESCRIPTION: 36 More Vouchers and 12 Fusion Vouchers! v1.1.3.1
 --- BADGE_COLOUR: ED40BF
 
 ----------------------------------------------
@@ -14,13 +14,11 @@
 -- sold jokers become a tag that replaces the next joker appearing in shop (also an ability)
 -- complete a quest to get a soul
 -- fusion vouchers:
--- Wild Cards can't be debuffed and retrigger themselves
+-- Forbidden Word: Fusion voucher and joker may appear in the store.  Forbidden magic: Purchased fusion Joker and voucher give things related to their fusion
 -- Randomize Lucky Card effects (+Chip, Mult, xMult, money, copy first card played, generate consumable, generate joker (oops all 6 maybe), comsumable slot, joker slot, random tag, enhance jokers, enhance cards, retrigger ...)
 -- Magic Trick + Reroll Surplus: return all cards to deck if deck has no cards
 -- Overstock + Reroll Surplus could make it so that whenever you buy something, it's automatically replaced with a card of the same type
 -- Oversupply Plus and 4D Boosters: Rerolls in the shop also reroll the voucher (if it wasn't purchased).
--- Epilogue and Engulfer: When blind ends, create a negative Black Hole.
--- Epilogue and Scribble: Spectral cards received from Epilogue are negative.
 -- Oversupply Plus and Overstock Plus: +1 voucher slot available at shop.
 -- Glow Up and Illusion: Playing cards in the shop always have an edition and may have an enhancement and/or a seal.          Or: Playing cards in the shop always have an enhancement, edition and a seal.
 -- Darkness and Double Planet: the planet card generated is negative
@@ -75,7 +73,8 @@ local config = {
     v_money_target=true,
     v_art_gallery=true,
     v_slate=true,
-    v_gilded_glider=true
+    v_gilded_glider=true,
+    v_mirror=true
 }
 
 
@@ -283,7 +282,7 @@ do
             end
             if G.GAME.used_vouchers.v_bulletproof then
                 for k, v in pairs(G.playing_cards) do
-                    if v.config.center_key == 'm_glass' then 
+                    if v.config.center_key == 'm_glass' and v.config.center.config.Xmult~=v.ability.x_mult then 
                         v.config.center=copy_table(v.config.center)
                         v.config.center.config.Xmult=v.ability.x_mult
                         -- if the x_mult has been decreased, change the number on hover UI from m_glass value to x_mult
@@ -1342,7 +1341,7 @@ do
     local G_FUNCS_cash_out_ref=G.FUNCS.cash_out
     G.FUNCS.cash_out=function (e)
         G_FUNCS_cash_out_ref(e)
-        if G.GAME.used_vouchers.v_3d_boosters then
+        if G.GAME.used_vouchers.v_3d_boosters and not G.GAME.miser and not(G.GAME.final_trident == true and not G.GAME.blind.disabled and not next(find_joker('Chicot'))) then -- prevent reroll if shop is skipped by Miser or Trident boss in Bunco mod
             my_reroll_shop(get_booster_pack_max()-2,0)
         end
     end
@@ -1543,24 +1542,27 @@ do
     local loc_txt = {
         name = name,
         text = {
-            "If all {C:attention}Vouchers{} have been redeemed",
-            "and you have more than {C:money}$#1#{},",
-            "redeeming {C:attention}Blank{} triggers {C:dark_edition}that Voucher{}",
-            "and doubles the money requirement"
+            "If you have more than",
+            "{C:money}$#1#/(Vouchers Redeemed + 1){}",
+            "that is {C:money}$#2#{}, redeeming",
+            "a voucher gives {C:dark_edition}Antimatter{}",
+            "and lets the money requirement {C:red}X#3#{}"
             
         }
     }
     local this_v = SMODS.Voucher:new(
         name, id,
-        {extra={base=20,multiplier=2}},
+        {extra={base=400,multiplier=5}},
         {x=0,y=0}, loc_txt,
         10, true, true, true, {'v_collector'}
     )
     SMODS.Sprite:new("v_"..id, SMODS.findModByID("BetmmaVouchers").path, "v_"..id..".png", 71, 95, "asset_atli"):register();
     this_v:register()
     this_v.loc_def = function(self)
-        local count=G and G.GAME and G.GAME.v_blank_count or 0
-        return {self.config.extra.base*self.config.extra.multiplier^(count)}
+        local count=G and G.GAME and G.GAME.v_connoisseur_count or 0
+        local redeemed=G and G.GAME and G.GAME.vouchers_bought or 0
+        return {self.config.extra.base*self.config.extra.multiplier^(count),
+        math.ceil(self.config.extra.base/(redeemed+1)*self.config.extra.multiplier^(count)),self.config.extra.multiplier}
     end
     local v_connoisseur=this_v
 
@@ -1581,9 +1583,9 @@ do
             extra = center and center.config.extra or self and self.ability.extra
         }
         G.GAME.vouchers_bought=(G.GAME.vouchers_bought or 0)+1
-        if center_table.name == 'Blank'then
-            if G.GAME.used_vouchers.v_connoisseur and G.GAME.vouchers_bought>=#G.P_CENTER_POOLS.Voucher and G.GAME.dollars>=v_connoisseur:loc_def()[1] then
-                
+        if center_table.name ~= 'Antimatter'then
+            if G.GAME.used_vouchers.v_connoisseur and G.GAME.dollars>=v_connoisseur:loc_def()[2] then
+                G.GAME.v_connoisseur_count= (G.GAME.v_connoisseur_count or 0)+1
                 G.E_MANAGER:add_event(Event({
                     trigger = 'before',
                     --blockable = false,
@@ -1593,7 +1595,7 @@ do
                         --ease_dollars(-v_connoisseur:loc_def()[1])
                         -- the description doesn't say you will pay that amount, so don't ease_dollars feels right lol
                         randomly_redeem_voucher("v_antimatter")
-                        G.GAME.v_blank_count= (G.GAME.v_blank_count or 0)+1
+                        
                         return true
                     end}))   
             end
@@ -1974,27 +1976,24 @@ do
     local loc_txt = {
         name = name,
         text = {
-            -- "Reduce currect score",
-            -- "by {C:green}#1#%{} to prevent",
-            -- "{C:attention}Glass Cards{}",
-            -- "from breaking",
-            -- "{C:inactive}not implemented yet",
+            -- "{C:attention}Glass Cards{} can",
+            -- "break #1# times"
             "{C:attention}Glass Cards{} lose {X:mult,C:white}X#1#{}",
             "instead of breaking.",
             "They break when",
-            "they reach {X:mult,C:white}X1{}"
+            "they reach {X:mult,C:white}X#2#{}"
         }
     }
     local this_v = SMODS.Voucher:new(
         name, id,
-        {extra=0.1},
+        {extra={lose=0.1,lower_bound=1.5}},
         {x=0,y=0}, loc_txt,
         10, true, true, true, {'v_omnicard'}
     )
     SMODS.Sprite:new("v_"..id, SMODS.findModByID("BetmmaVouchers").path, "v_"..id..".png", 71, 95, "asset_atli"):register();
     this_v:register()
     this_v.loc_def = function(self)
-        return {self.config.extra}
+        return {self.config.extra.lose,self.config.extra.lower_bound}
     end
 
     local Card_set_debuff=Card.set_debuff
@@ -2024,30 +2023,15 @@ do
 
     local Card_shatter_ref=Card.shatter
     function Card:shatter()
-        if G.GAME.used_vouchers.v_bulletproof and self.ability.name == 'Glass Card' and self.ability.x_mult>1+G.P_CENTERS.v_bulletproof.config.extra then
-            -- G.playing_card = (G.playing_card and G.playing_card + 1) or 1
-            -- local new_card=copy_card(self, nil, nil, G.playing_card)
-            -- new_card.shattered=false
-            -- new_card.destroyed=false
-            -- new_card:add_to_deck()
-            
-            -- G.deck.config.card_limit = G.deck.config.card_limit + 1
-            -- table.insert(G.playing_cards,new_card)
-            -- new_card.ability.x_mult=new_card.ability.x_mult-0.1
-            -- -- the hover ui is still x2
-            
-            -- local index=1
-            -- while G.play.cards[index]~=self and index<=#G.play.cards do
-            --     index=index+1
-            -- end
-            -- G.play:emplace(new_card)--,index) can't insert it in the middle, only front or back
-            self.ability.x_mult=self.ability.x_mult-G.P_CENTERS.v_bulletproof.config.extra
-            self.config.center=copy_table(self.config.center)
-            self.config.center.config.Xmult=self.config.center.config.Xmult-G.P_CENTERS.v_bulletproof.config.extra
+        if G.GAME.used_vouchers.v_bulletproof and self.ability.name == 'Glass Card' and G.P_CENTERS.m_glass.config.Xmult-G.P_CENTERS.v_bulletproof.config.extra.lose*(self.ability.breaking_count or 0)+1>G.P_CENTERS.v_bulletproof.config.extra.lower_bound then
+            self.ability.breaking_count=(self.ability.breaking_count or 0)+1
+            self.ability.x_mult=G.P_CENTERS.m_glass.config.Xmult-G.P_CENTERS.v_bulletproof.config.extra.lose*self.ability.breaking_count
+            self.config.center=copy_table(self.config.center) -- prevent modifying value of G.P_CENTERS.m_glass
+            self.config.center.config.Xmult=self.ability.x_mult--self.config.center.config.Xmult-G.P_CENTERS.v_bulletproof.config.extra.lose
             self.shattered=false
             self.destroyed=false
             card_eval_status_text(self,'extra',nil,nil,nil,{message=localize('k_bulletproof')})
-            card_eval_status_text(self,'extra',nil,nil,nil,{message=localize{type='variable',key='a_xmult_minus',vars={G.P_CENTERS.v_bulletproof.config.extra}},colour=G.C.RED})
+            card_eval_status_text(self,'extra',nil,nil,nil,{message=localize{type='variable',key='a_xmult_minus',vars={G.P_CENTERS.v_bulletproof.config.extra.lose}},colour=G.C.RED})
             Card_shatter_not_remove(self)
             return
         end
@@ -2243,20 +2227,9 @@ do
         return {}
     end
 
-    local G_FUNC_can_reroll_ref=G.FUNCS.can_reroll
-    G.FUNCS.can_reroll= function(e)
-        G_FUNC_can_reroll_ref(e)
-        if not(G.blind_prompt_box) then 
-            e.config.colour = G.C.UI.BACKGROUND_INACTIVE
-            e.config.button = nil
-            --e.children[1].children[1].config.shadow = false
-            --e.children[2].children[1].config.shadow = false
-            --e.children[2].children[2].config.shadow = false
-        end
-    end
-
     local G_FUNC_reroll_boss_ref =  G.FUNCS.reroll_boss
     G.FUNCS.reroll_boss = function(e) 
+        if G.STATE~=G.STATES.BLIND_SELECT then return end
         G_FUNC_reroll_boss_ref(e)
         
         if G.GAME.used_vouchers.v_reroll_cut then -- adding a pack tag when in a pack causes double pack and will crash
@@ -2775,6 +2748,57 @@ do
     end
 
 end -- gilded glider
+do
+    local name="Mirror"
+    local id="mirror"
+    local loc_txt = {
+        name = name,
+        text = {
+            "When a {C:attention}Steel Card{} scores,",
+            "the card to its right",
+            "triggers one more time", 
+            "{C:inactive}(Flipped Card + Omnicard){}"
+        }
+    }
+    local this_v = SMODS.Voucher:new(
+        name, id,
+        {},
+        {x=0,y=0}, loc_txt,
+        10, true, true, true, {'v_flipped_card','v_omnicard'}
+    )
+    SMODS.Sprite:new("v_"..id, SMODS.findModByID("BetmmaVouchers").path, "v_"..id..".png", 71, 95, "asset_atli"):register();
+    this_v:register()
+    this_v.loc_def = function(self)
+        return {}
+    end
+
+    local eval_card_ref=eval_card
+    function eval_card(card, context)
+        local ret=eval_card_ref(card, context)
+        if G.GAME.used_vouchers.v_mirror and context.cardarea == G.play and card.config.center_key=='m_steel' then -- this is scoring calculation
+            local index=1
+            while G.play.cards[index]~=card and index<=#G.play.cards do
+                index=index+1
+            end
+            if index<#G.play.cards then
+                local right_card=G.play.cards[index+1]
+                right_card.ability.temp_repetition=(right_card.ability.temp_repetition or 0)+1
+            end
+        end
+        if G.GAME.used_vouchers.v_mirror and context.repetition_only  and card.ability.temp_repetition then -- if this is the red seal calculation, add temp repetition 
+            if not ret.seals then ret.seals={
+                message = localize('k_again_ex'),
+                repetitions = card.ability.temp_repetition,
+                card = card
+            }
+            else ret.seals.repetitions=ret.seals.repetitions+card.ability.temp_repetition
+            end
+            card.ability.temp_repetition=0
+        end
+        return ret
+    end
+
+end -- mirror
     -- -- this challenge is only for test
     -- table.insert(G.CHALLENGES,1,{
     --     name = "TestVoucher",
@@ -2783,7 +2807,7 @@ end -- gilded glider
     --         custom = {
     --         },
     --         modifiers = {
-    --             {id = 'dollars', value = 5},
+    --             {id = 'dollars', value = 5000},
     --         }
     --     },
     --     jokers = {
@@ -2798,13 +2822,19 @@ end -- gilded glider
     --         {id = 'j_triboulet'},
     --     },
     --     consumeables = {
-    --         {id = 'c_devil', edition = 'polychrome'},
+    --         -- {id = 'c_justice_cu'},
+    --         -- {id = 'c_heirophant_cu'},
+    --         -- {id = 'c_tower_cu'},
+    --         {id = 'c_devil_cu'},
     --         --{id = 'c_death'},
     --     },
     --     vouchers = {
     --         {id = 'v_trash_picker'},
     --         {id = 'v_slate'},
-    --         {id = 'v_gold_round_up'},
+    --         {id = 'v_3d_boosters'},
+    --         {id = 'v_4d_boosters'},
+    --         --{id = 'v_bonus_plus'},
+    --         {id = 'v_gilded_glider'},
     --         {id = 'v_bulletproof'},
     --         {id = 'v_paint_brush'},
     --         -- {id = 'v_liquidation'},
@@ -2812,12 +2842,12 @@ end -- gilded glider
     --         -- {id = 'v_b1g1'},
     --         -- {id = 'v_overshopping'},
     --         -- {id = 'v_directors_cut'},
-    --         -- {id = 'v_retcon'},
+    --         {id = 'v_retcon'},
     --         -- {id = 'v_event_horizon'},
     --     },
     --     deck = {
     --         type = 'Challenge Deck',
-    --         cards = {{s='D',r='2',e='m_glass',g='Red'},{s='D',r='3',e='m_wild',g='Red'},{s='D',r='4',e='m_wild',g='Red'},{s='D',r='5',e='m_steel',g='Red'},{s='D',r='6',e='m_glass',g='Red'},{s='D',r='7',e='m_glass',},{s='D',r='8',e='m_steel',},{s='D',r='9',e='m_glass',},{s='D',r='T',e='m_steel',},{s='D',r='J',e='m_glass',},{s='D',r='Q',e='m_steel',},{s='D',r='K',e='m_glass',},{s='D',r='A',e='m_steel',},{s='D',r='K',e='m_steel',},{s='D',r='A',e='m_wild',},{s='D',r='K',e='m_wild',},{s='D',r='A',e='m_steel',},}
+    --         cards = {{s='D',r='2',e='m_stone',g='Red'},{s='D',r='3',e='m_wild',g='Red'},{s='D',r='4',e='m_wild',g='Red'},{s='D',r='5',e='m_steel',g='Red'},{s='D',r='6',e='m_glass',g='Red'},{s='D',r='7',e='m_glass',},{s='D',r='8',e='m_steel',},{s='D',r='9',e='m_glass',},{s='D',r='T',e='m_steel',},{s='D',r='J',e='m_glass',},{s='D',r='Q',e='m_steel',},{s='D',r='K',e='m_glass',},{s='D',r='A',e='m_steel',},{s='D',r='K',e='m_steel',},{s='D',r='A',e='m_wild',},{s='D',r='K',e='m_wild',},{s='D',r='A',e='m_steel',},}
     --     },
     --     restrictions = {
     --         banned_cards = {

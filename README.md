@@ -1,9 +1,11 @@
 # Mods
 
+- Ace in the hole [Link](https://discord.com/channels/1116389027176787968/1215144701586575360/1215325112434167878)
 - Achievement Enabler [Link](https://github.com/Steamopollys/Steamodded/blob/main/example_mods/Mods/AchievementsEnabler.lua)
 - BBBalatro [Link](https://github.com/BBBalatroMod/BBBalatro/tree/main)
 - Betmma's Mods [Link](https://github.com/betmma/my_balatro_mods)
 - Bunco [Link](https://github.com/Firch/Bunco)
+- Cheesy Jokers [Link](https://github.com/ilikecheese0/CheesyJokers)
 - Codex Arcanum [Link](https://github.com/itayfeder/Codex-Arcanum)
 - Divvy's Preview [Link](https://github.com/DivvyCr/Balatro-Preview)
 - Flush Hotkeys [Link](https://github.com/Agoraaa/FlushHotkeys)
