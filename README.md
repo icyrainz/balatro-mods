@@ -14,7 +14,7 @@
 - (removed) More Fluff [Link](https://notmario.github.io/MoreFluff/)
 - (removed) MultiJokers [Link](https://github.com/iJohnMaged/multi-jokers)
 - Pampa Joker Pack [Link](https://batabata3.github.io/balatro-pampa-joker-pack/)
-- SDM_0's Stuff [Link](https://github.com/SDM0/Balatro-Mods)
+- (removed) SDM_0's Stuff [Link](https://github.com/SDM0/Balatro-Mods)
 - Snoreville's Turbulent Jokers [Link](https://snoresville.github.io/snoresville_turbulent_jokers/)
 - Snow's Mods [Link](https://rattlingsnow353.github.io/Snow-s-Mods/)
 - (removed) Deluxe Consumable Cards [Link](https://github.com/JeffVi/DX-Tarots)
