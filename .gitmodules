@@ -7,3 +7,6 @@
 [submodule "Mods_Repo/FlushHotkeys"]
 	path = Mods_Repo/FlushHotkeys
 	url = https://github.com/Agoraaa/FlushHotkeys
+[submodule "Mods_Repo/SDM0"]
+	path = Mods_Repo/SDM0
+	url = https://github.com/SDM0/Balatro-Mods
