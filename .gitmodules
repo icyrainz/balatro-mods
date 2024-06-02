@@ -1,0 +1,9 @@
+[submodule "Steamodded"]
+	path = Steamodded
+	url = https://github.com/Steamopollys/Steamodded
+[submodule "Mods/FlushHotkeys"]
+	path = Mods/FlushHotkeys
+	url = https://github.com/Agoraaa/FlushHotkeys
+[submodule "Mods_Repo/FlushHotkeys"]
+	path = Mods_Repo/FlushHotkeys
+	url = https://github.com/Agoraaa/FlushHotkeys
