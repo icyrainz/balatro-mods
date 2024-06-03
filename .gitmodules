@@ -10,3 +10,12 @@
 [submodule "Mods_Repo/SDM0"]
 	path = Mods_Repo/SDM0
 	url = https://github.com/SDM0/Balatro-Mods
+[submodule "Mods_Repo/Fusion-Jokers"]
+	path = Mods_Repo/Fusion-Jokers
+	url = https://github.com/itayfeder/Fusion-Jokers
+[submodule "Mods_Repo/Talisman"]
+	path = Mods_Repo/Talisman
+	url = https://github.com/MathIsFun0/Talisman
+[submodule "Mods_Repo/Cryptid"]
+	path = Mods_Repo/Cryptid
+	url = https://github.com/MathIsFun0/Cryptid

@@ -10,9 +10,7 @@ rm -r "$MOD_PATH"
 mkdir "$MOD_PATH"
 
 # Regenerate source
-cd ./Mods_Repo/
-sh ./copy_mods.sh
-cd -
+sh ./gen_mods.sh
 
 # Sync files
 rsync -avzh --exclude '*.git*/*' "$MY_MODS_PATH/Steamodded/" "$STEAMODDED_PATH"
