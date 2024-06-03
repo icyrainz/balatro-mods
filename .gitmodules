@@ -19,3 +19,6 @@
 [submodule "Mods_Repo/Cryptid"]
 	path = Mods_Repo/Cryptid
 	url = https://github.com/MathIsFun0/Cryptid
+[submodule "Mods_Repo/readabletro"]
+	path = Mods_Repo/readabletro
+	url = https://github.com/bladeSk/readabletro

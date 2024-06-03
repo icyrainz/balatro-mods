@@ -5,7 +5,7 @@ mkdir ./Mods
 
 # Generic lua mods
 cp ./Mods_Repo/*.lua ./Mods
-cp ./Mods_Repo/vcr.ttf ./Mods/font.ttf
+cp ./Mods_Repo/*.ttf ./Mods
 
 # FlushHotkeys
 rsync -avzh ./Mods_Repo/FlushHotkeys/steamodded/* ./Mods
