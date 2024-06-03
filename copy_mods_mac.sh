@@ -1,6 +1,6 @@
 #!/bin/sh
 
-MY_MODS_PATH="$HOME/Github/balatro-mods/"
+MY_MODS_PATH="$HOME/Github/balatro-mods"
 BALATRO_PATH="$HOME/Library/Application Support/Balatro"
 MOD_PATH="$BALATRO_PATH/Mods"
 STEAMODDED_PATH="$MOD_PATH/Steamodded"
