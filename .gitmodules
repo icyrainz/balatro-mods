@@ -22,3 +22,6 @@
 [submodule "Mods_Repo/readabletro"]
 	path = Mods_Repo/readabletro
 	url = https://github.com/bladeSk/readabletro
+[submodule "Mods_Repo/--force"]
+	path = Mods_Repo/--force
+	url = https://github.com/MathIsFun0/Talisman
