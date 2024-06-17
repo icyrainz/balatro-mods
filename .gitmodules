@@ -30,3 +30,7 @@
 	path = Mods_Repo/Joker-Evolution
 	url = https://github.com/SDM0/Joker-Evolution
 	branch = main
+[submodule "Mods_Repo/Aura"]
+	path = Mods_Repo/Aura
+	url = https://github.com/MathIsFun0/Aura
+	branch = main

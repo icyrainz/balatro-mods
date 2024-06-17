@@ -6,7 +6,8 @@
 ## First time
 
 ```
-git submodule init
+git clone https://github.com/icyrainz/balatro-mods
+git submodule update --init --recursive --remote
 ```
 
 ## Update all and copy to Steam
@@ -16,8 +17,9 @@ git submodule init
 
 ## Add new mod
 
-1. Add new repo with `git submodule add <repo_url>`
-2. Modify `./gen_mods.sh` to add copy command for that mod. Each mod can be different directory layout.
+1. Go to Mods_Repo `cd Mods_Repo`
+2. Add new repo with `git submodule add <repo_url>`
+3. Modify `./gen_mods.sh` to add copy command for that mod. Each mod can be different directory layout.
 
 # Current mods (compatible with 1.0.0 Steamodded)
 

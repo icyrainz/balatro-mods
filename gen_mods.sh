@@ -23,6 +23,9 @@ cp -f ./Mods_Repo/talisman_config.lua ./Mods/Talisman/config.lua
 # Cryptid
 rsync -azvh ./Mods_Repo/Cryptid ./Mods
 
+# Aura
+rsync -azvh ./Mods_Repo/Aura ./Mods
+
 # JokerDisplay
 rsync -azvh ./Mods_Repo/JokerDisplay ./Mods
 
