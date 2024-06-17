@@ -31,3 +31,12 @@ rsync -azvh ./Mods_Repo/JokerDisplay ./Mods
 
 # JokerEvolution
 rsync -azvh ./Mods_Repo/Joker-Evolution/JokerEvolution ./Mods
+
+# Betmma
+rsync -azvh ./Mods_Repo/betmma ./Mods
+
+# D6-Jokers
+rsync -azvh ./Mods_Repo/D6-Jokers ./Mods
+
+# Jimbo-s-Pack
+rsync -azvh ./Mods_Repo/Jimbo-s-Pack/JimbosPack ./Mods

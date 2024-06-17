@@ -34,3 +34,15 @@
 	path = Mods_Repo/Aura
 	url = https://github.com/MathIsFun0/Aura
 	branch = main
+[submodule "Mods_Repo/betmma"]
+	path = Mods_Repo/betmma
+	url = https://github.com/betmma/my_balatro_mods
+	branch = main
+[submodule "Mods_Repo/D6-Jokers"]
+	path = Mods_Repo/D6-Jokers
+	url = https://github.com/GauntletGames-2086/D6-Jokers
+	branch = main
+[submodule "Mods_Repo/Jimbo-s-Pack"]
+	path = Mods_Repo/Jimbo-s-Pack
+	url = https://github.com/art-muncher/Jimbo-s-Pack
+	branch = main
