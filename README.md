@@ -1,4 +1,13 @@
-# Mods
+# Current mods (compatible with 1.0.0 Steamodded)
+
+- Talisman [Link](https://github.com/MathIsFun0/Talisman)
+- Cryptid [Link](https://github.com/MathIsFun0/Cryptid)
+- FlushHotkeys [Link](https://github.com/Agoraaa/FlushHotkeys)
+- SDM_0's Stuff [Link](https://github.com/SDM0/Balatro-Mods)
+- Joker-Evolution [Link](https://github.com/SDM0/Joker-Evolution)
+- JokerDisplay [Link](https://github.com/nh6574/JokerDisplay)
+
+# Old list
 
 - Achievement Enabler [Link](https://github.com/Steamopollys/Steamodded/blob/main/example_mods/Mods/AchievementsEnabler.lua)
 - BBBalatro [Link](https://github.com/BBBalatroMod/BBBalatro/tree/main)
@@ -14,7 +23,6 @@
 - More Fluff [Link](https://notmario.github.io/MoreFluff/)
 - MultiJokers [Link](https://github.com/iJohnMaged/multi-jokers)
 - Pampa Joker Pack [Link](https://batabata3.github.io/balatro-pampa-joker-pack/)
-- SDM_0's Stuff [Link](https://github.com/SDM0/Balatro-Mods)
 - Snoreville's Turbulent Jokers [Link](https://snoresville.github.io/snoresville_turbulent_jokers/)
 - Snow's Mods [Link](https://rattlingsnow353.github.io/Snow-s-Mods/)
 - Deluxe Consumable Cards [Link](https://github.com/JeffVi/DX-Tarots)

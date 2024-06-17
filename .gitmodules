@@ -2,10 +2,6 @@
 	path = Steamodded
 	url = https://github.com/Steamopollys/Steamodded
 	branch = main
-[submodule "Mods/FlushHotkeys"]
-	path = Mods/FlushHotkeys
-	url = https://github.com/Agoraaa/FlushHotkeys
-	branch = main
 [submodule "Mods_Repo/FlushHotkeys"]
 	path = Mods_Repo/FlushHotkeys
 	url = https://github.com/Agoraaa/FlushHotkeys
@@ -29,4 +25,8 @@
 [submodule "Mods_Repo/JokerDisplay"]
 	path = Mods_Repo/JokerDisplay
 	url = https://github.com/nh6574/JokerDisplay
+	branch = main
+[submodule "Mods_Repo/Joker-Evolution"]
+	path = Mods_Repo/Joker-Evolution
+	url = https://github.com/SDM0/Joker-Evolution
 	branch = main
