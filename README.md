@@ -23,18 +23,22 @@ git submodule update --init --recursive --remote
 
 # Current mods (compatible with 1.0.0 Steamodded)
 
-- Talisman [Link](https://github.com/MathIsFun0/Talisman)
+- Aura [Link](https://github.com/MathIsFun0/Aura)
 - Cryptid [Link](https://github.com/MathIsFun0/Cryptid)
+- D6 Jokers [Link](https://github.com/GauntletGames-2086/D6-Jokers)
 - FlushHotkeys [Link](https://github.com/Agoraaa/FlushHotkeys)
-- SDM_0's Stuff [Link](https://github.com/SDM0/Balatro-Mods)
+- ~~Fusion-Jokers~~ [Link](https://github.com/itayfeder/Fusion-Jokers)
+- Jimbo-s-Pack [text](https://github.com/art-muncher/Jimbo-s-Pack)
 - Joker-Evolution [Link](https://github.com/SDM0/Joker-Evolution)
 - JokerDisplay [Link](https://github.com/nh6574/JokerDisplay)
+- SDM_0's Stuff [Link](https://github.com/SDM0/Balatro-Mods)
+- Talisman [Link](https://github.com/MathIsFun0/Talisman)
+- Betmma's Mods [Link](https://github.com/betmma/my_balatro_mods)
 
 # Old list
 
 - Achievement Enabler [Link](https://github.com/Steamopollys/Steamodded/blob/main/example_mods/Mods/AchievementsEnabler.lua)
 - BBBalatro [Link](https://github.com/BBBalatroMod/BBBalatro/tree/main)
-- Betmma's Mods [Link](https://github.com/betmma/my_balatro_mods)
 - Bunco [Link](https://github.com/Firch/Bunco)
 - Cheesy Jokers [Link](https://github.com/ilikecheese0/CheesyJokers)
 - Codex Arcanum [Link](https://github.com/itayfeder/Codex-Arcanum)
