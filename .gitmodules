@@ -1,27 +1,32 @@
 [submodule "Steamodded"]
 	path = Steamodded
 	url = https://github.com/Steamopollys/Steamodded
+  branch = main
 [submodule "Mods/FlushHotkeys"]
 	path = Mods/FlushHotkeys
 	url = https://github.com/Agoraaa/FlushHotkeys
+  branch = main
 [submodule "Mods_Repo/FlushHotkeys"]
 	path = Mods_Repo/FlushHotkeys
 	url = https://github.com/Agoraaa/FlushHotkeys
+  branch = main
 [submodule "Mods_Repo/SDM0"]
 	path = Mods_Repo/SDM0
 	url = https://github.com/SDM0/Balatro-Mods
+  branch = smods_1.0.0
 [submodule "Mods_Repo/Fusion-Jokers"]
 	path = Mods_Repo/Fusion-Jokers
 	url = https://github.com/itayfeder/Fusion-Jokers
+  branch = main
 [submodule "Mods_Repo/Talisman"]
 	path = Mods_Repo/Talisman
 	url = https://github.com/MathIsFun0/Talisman
+  branch = main
 [submodule "Mods_Repo/Cryptid"]
 	path = Mods_Repo/Cryptid
 	url = https://github.com/MathIsFun0/Cryptid
-[submodule "Mods_Repo/readabletro"]
-	path = Mods_Repo/readabletro
-	url = https://github.com/bladeSk/readabletro
-[submodule "Mods_Repo/--force"]
-	path = Mods_Repo/--force
-	url = https://github.com/MathIsFun0/Talisman
+  branch = main
+[submodule "Mods_Repo/JokerDisplay"]
+	path = Mods_Repo/JokerDisplay
+	url = https://github.com/nh6574/JokerDisplay
+  branch = main

@@ -18,6 +18,10 @@ rsync -avzh ./Mods_Repo/FlushHotkeys/steamodded/* ./Mods
 
 # Talisman
 rsync -azvh ./Mods_Repo/Talisman ./Mods
+cp -f ./Mods_Repo/talisman_config.lua ./Mods/Talisman/config.lua
 
 # Cryptid
 rsync -azvh ./Mods_Repo/Cryptid ./Mods
+
+# JokerDisplay
+rsync -azvh ./Mods_Repo/JokerDisplay ./Mods
