@@ -1,3 +1,24 @@
+> [!WARNING]
+> Only tested on Mac and Steamdeck (archlinux)
+
+# How to use
+
+## First time
+
+```
+git submodule init
+```
+
+## Update all and copy to Steam
+
+1. Run `./update_all.sh`
+2. Run `./copy_mods_mac.sh` or `./copy_mods_linux.sh` depending on your system
+
+## Add new mod
+
+1. Add new repo with `git submodule add <repo_url>`
+2. Modify `./gen_mods.sh` to add copy command for that mod. Each mod can be different directory layout.
+
 # Current mods (compatible with 1.0.0 Steamodded)
 
 - Talisman [Link](https://github.com/MathIsFun0/Talisman)
