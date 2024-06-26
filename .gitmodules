@@ -46,3 +46,15 @@
 	path = Mods_Repo/Jimbo-s-Pack
 	url = https://github.com/art-muncher/Jimbo-s-Pack
 	branch = main
+[submodule "Mods_Repo/Bunco"]
+	path = Mods_Repo/Bunco
+	url = https://github.com/Firch/Bunco
+	branch = main
+[submodule "Mods_Repo/BBBalatro"]
+	path = Mods_Repo/BBBalatro
+	url = https://github.com/BBBalatroMod/BBBalatro
+	branch = main
+[submodule "Mods_Repo/snoresville_turbulent_jokers"]
+	path = Mods_Repo/snoresville_turbulent_jokers
+	url = https://github.com/Snoresville/snoresville_turbulent_jokers
+	branch = master

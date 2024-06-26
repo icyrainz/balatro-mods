@@ -1,6 +1,6 @@
 #!/bin/sh
 
-MY_MODS_PATH=$(dirname $0 | realpath)
+MY_MODS_PATH=$(realpath $(dirname $0))
 BALATRO_PATH="$HOME/.steam/steam/steamapps/compatdata/2379780/pfx/drive_c/users/steamuser/AppData/Roaming/Balatro"
 MOD_PATH="$BALATRO_PATH/Mods"
 STEAMODDED_PATH="$MOD_PATH/Steamodded"
