@@ -13,9 +13,6 @@ rsync -avzh ./Mods_Repo/FlushHotkeys ./Mods
 # SDM0
 rsync -avzh ./Mods_Repo/SDM0/SDM_0\'s\ Stuff ./Mods
 
-# Fusion Jokers
-# rsync -azvh ./Mods_Repo/Fusion-Jokers/mod/* ./Mods
-
 # Talisman
 rsync -azvh ./Mods_Repo/Talisman ./Mods
 cp -f ./Mods_Repo/talisman_config.lua ./Mods/Talisman/config.lua
