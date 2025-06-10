@@ -26,7 +26,6 @@ git submodule update --init --recursive --remote
 - Aura [Link](https://github.com/MathIsFun0/Aura)
 - Cryptid [Link](https://github.com/MathIsFun0/Cryptid)
 - FlushHotkeys [Link](https://github.com/Agoraaa/FlushHotkeys)
-- ~Fusion-Jokers~ [Link](https://github.com/itayfeder/Fusion-Jokers)
 - Joker-Evolution [Link](https://github.com/SDM0/Joker-Evolution)
 - JokerDisplay [Link](https://github.com/nh6574/JokerDisplay)
 - SDM_0's Stuff [Link](https://github.com/SDM0/Balatro-Mods)
