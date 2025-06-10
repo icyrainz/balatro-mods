@@ -25,15 +25,14 @@ git submodule update --init --recursive --remote
 
 - Aura [Link](https://github.com/MathIsFun0/Aura)
 - Cryptid [Link](https://github.com/MathIsFun0/Cryptid)
-- D6 Jokers [Link](https://github.com/GauntletGames-2086/D6-Jokers)
 - FlushHotkeys [Link](https://github.com/Agoraaa/FlushHotkeys)
-- ~~Fusion-Jokers~~ [Link](https://github.com/itayfeder/Fusion-Jokers)
+- ~Fusion-Jokers~ [Link](https://github.com/itayfeder/Fusion-Jokers)
 - Jimbo-s-Pack [text](https://github.com/art-muncher/Jimbo-s-Pack)
 - Joker-Evolution [Link](https://github.com/SDM0/Joker-Evolution)
 - JokerDisplay [Link](https://github.com/nh6574/JokerDisplay)
 - SDM_0's Stuff [Link](https://github.com/SDM0/Balatro-Mods)
 - Talisman [Link](https://github.com/MathIsFun0/Talisman)
-- Betmma's Mods [Link](https://github.com/betmma/my_balatro_mods)
+- ~Betmma's Mods~ [Link](https://github.com/betmma/my_balatro_mods)
 
 # Old list
 
@@ -42,6 +41,7 @@ git submodule update --init --recursive --remote
 - Bunco [Link](https://github.com/Firch/Bunco)
 - Cheesy Jokers [Link](https://github.com/ilikecheese0/CheesyJokers)
 - Codex Arcanum [Link](https://github.com/itayfeder/Codex-Arcanum)
+- D6 Jokers [Link](https://github.com/GauntletGames-2086/D6-Jokers)
 - Divvy's Preview [Link](https://github.com/DivvyCr/Balatro-Preview)
 - Flush Hotkeys [Link](https://github.com/Agoraaa/FlushHotkeys)
 - Fusion Jokers [Link](https://itayfeder.github.io/Fusion-Jokers/)
