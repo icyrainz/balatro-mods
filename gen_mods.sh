@@ -8,7 +8,7 @@ cp ./Mods_Repo/*.lua ./Mods
 cp ./Mods_Repo/*.ttf ./Mods
 
 # FlushHotkeys
-rsync -avzh ./Mods_Repo/FlushHotkeys/steamodded/* ./Mods
+rsync -avzh ./Mods_Repo/FlushHotkeys ./Mods
 
 # SDM0
 rsync -avzh ./Mods_Repo/SDM0/SDM_0\'s\ Stuff ./Mods
@@ -30,16 +30,7 @@ rsync -azvh ./Mods_Repo/Aura ./Mods
 rsync -azvh ./Mods_Repo/JokerDisplay ./Mods
 
 # JokerEvolution
-rsync -azvh ./Mods_Repo/Joker-Evolution/JokerEvolution ./Mods
+rsync -azvh ./Mods_Repo/Joker-Evolution ./Mods
 
 # Betmma
-rsync -azvh ./Mods_Repo/betmma ./Mods
-
-# D6-Jokers
-# rsync -azvh ./Mods_Repo/D6-Jokers ./Mods
-
-# Jimbo-s-Pack
-rsync -azvh ./Mods_Repo/Jimbo-s-Pack/JimbosPack ./Mods
-
-# BBBalatro
-# rsync -azvh ./Mods_Repo/BBBalatro ./Mods
+# rsync -azvh ./Mods_Repo/betmma ./Mods
